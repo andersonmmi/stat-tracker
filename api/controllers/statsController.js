@@ -65,25 +65,3 @@ exports.delete_an_activity = function(req, res){
     }
   );
 };
-
-exports.create_a_stat = function(req, res){
-  console.log("create_a_stat");
-  let newStat = new Stats(req.body);
-  newActivity.save(function(err, stat){
-    if (err)
-      res.send(err);
-    res.json(stat);
-  });
-};
-
-exports.delete_a_stat = function(req, res){
-  console.log("delete_a_stat");
-  Stat.remove({
-      _id: req.params.statId
-    },
-    function(err, stat){
-    if (err)
-      res.send(err);
-    res.json({ message: 'Stat successfully deleted' });
-  });
-};
