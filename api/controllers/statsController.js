@@ -6,10 +6,10 @@ const Stats = mongoose.model('Stats');
 const Activities = mongoose.model('Activities')
 
 exports.list_all_activities = function(req, res){
-  Stats.find({}, function(err, stat){
+  Activities.find({}, function(err, activity){
     if (err)
       res.send(err);
-    res.json(stat);
+    res.json(activity);
   });
 };
 
