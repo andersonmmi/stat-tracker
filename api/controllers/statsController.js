@@ -6,6 +6,7 @@ const Stats = mongoose.model('Stats');
 const Activities = mongoose.model('Activities')
 
 exports.list_all_activities = function(req, res){
+  console.log("list_all_activities");
   Activities.find({}, function(err, activity){
     if (err)
       res.send(err);
@@ -14,6 +15,7 @@ exports.list_all_activities = function(req, res){
 };
 
 exports.create_an_activity = function(req, res){
+  console.log("create_an_activity");
   let newActivity = new Activities(req.body);
   newActivity.save(function(err, activity){
     if (err)
@@ -22,9 +24,10 @@ exports.create_an_activity = function(req, res){
   });
 };
 
-// read_an_activity does not limit to a single response
+// BUG: read_an_activity does not limit to a single response
 exports.read_an_activity = function(req, res){
-  Activities.findById(req.params.activityId, function(err, activity) {
+  console.log("read_an_activity");
+  Activities.find({activity:req.params.activity}, function(err, activity) {
     if (err)
       res.send(err);
     res.json(activity);
@@ -32,6 +35,7 @@ exports.read_an_activity = function(req, res){
 };
 
 exports.update_an_activity = function(req, res){
+  console.log("update_an_activity");
   Activities.findOneAndUpdate({_id: req.params.activityId}, req.body, {new: true}, function(err, activity) {
     if (err)
       res.send(err);
@@ -40,7 +44,8 @@ exports.update_an_activity = function(req, res){
 };
 
 exports.delete_an_activity = function(req, res){
-  Stat.remove({
+  console.log("delete_an_activity");
+  Activities.remove({
       _id: req.params.activityId
     },
     function(err, activity){
@@ -51,6 +56,7 @@ exports.delete_an_activity = function(req, res){
 };
 
 exports.create_a_stat = function(req, res){
+  console.log("create_a_stat");
   let newStat = new Stats(req.body);
   newActivity.save(function(err, stat){
     if (err)
@@ -60,6 +66,7 @@ exports.create_a_stat = function(req, res){
 };
 
 exports.delete_a_stat = function(req, res){
+  console.log("delete_a_stat");
   Stat.remove({
       _id: req.params.statId
     },
