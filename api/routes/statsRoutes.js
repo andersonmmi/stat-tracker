@@ -1,27 +1,19 @@
-app.get('/activities', function (req,res){
+'use strict';
+module.exports = function(app) {
+  const todoList = require('../controllers/statsController');
 
-});
+  app.route('/activities')
+    .get()
+    .post();
 
-app.post('/activities', function (req,res){
+  app.route('activities/:id')
+    .get()
+    .put()
+    .delete();
 
-});
+  app.route('/activities/:id/stats')
+    .post();
 
-app.get('/activities/:id', function (req,res){
-
-});
-
-app.put('/activites/:id', function (req,res){
-
-});
-
-app.delet('/activites/:id', function (req,res){
-
-});
-
-app.post('/activites/:id/stats', function (req,res){
-
-});
-
-app.delete('/stats/:id', function (req,res){
-
-});
+  app.route('/stats/:id')
+    .delete();
+};
