@@ -7,6 +7,14 @@ const ActivitySchema = new Schema({
   activity: {
     type: String,
     required: 'Activity needs a name'
+  },
+  record_date: {
+    type: Date,
+    default: Date.now
+  },
+  repetitions: {
+    type: Number,
+    default: 1
   }
 });
 
