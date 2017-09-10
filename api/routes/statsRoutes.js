@@ -1,19 +1,19 @@
 'use strict';
 module.exports = function(app) {
-  const todoList = require('../controllers/statsController');
+  const statsRoutes = require('../controllers/statsController');
 
   app.route('/activities')
-    .get()
-    .post();
+    .get(statsRoutes.list_all_activities)
+    .post(statsRoutes.create_an_activity);
 
   app.route('activities/:id')
-    .get()
-    .put()
-    .delete();
+    .get(statsRoutes.read_an_activity)
+    .put(statsRoutes.update_an_activity)
+    .delete(statsRoutes.delete_an_activity);
 
   app.route('/activities/:id/stats')
-    .post();
+    .post(statsRoutes.create_a_stat);
 
   app.route('/stats/:id')
-    .delete();
+    .delete(statsRoutes.delete_a_stat);
 };
