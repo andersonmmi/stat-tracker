@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 const mongodb = require('mongodb');
 const bodyParser = require('body-parser');
-const bcrypt = require('bcryptjs');
 const mongoURL = 'mongodb://localhost:27017/statsDB';
 const app = express();
 mongoose.connect(mongoURL);
