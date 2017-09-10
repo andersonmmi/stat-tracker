@@ -44,23 +44,26 @@ exports.read_an_activity_by_id = function(req, res){
 
 exports.update_an_activity = function(req, res){
   console.log("update_an_activity");
-  Activities.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, activity) {
-    if (err)
-      res.send(err);
-    res.json(activity);
-  });
+  Activities.findOneAndUpdate({_id: req.params.id},
+      req.body,
+      {new: true},
+      function(err, activity){
+        if (err)
+          res.send(err);
+        res.json(activity);
+      }
+  );
 };
 
 exports.delete_an_activity = function(req, res){
   console.log("delete_an_activity");
-  Activities.remove({
-      _id: req.params.activityId
-    },
+  Activities.remove({_id: req.params.id},
     function(err, activity){
-    if (err)
-      res.send(err);
-    res.json({ message: 'Activity successfully deleted' });
-  });
+      if (err)
+        res.send(err);
+      res.json({ message: 'Activity successfully deleted' });
+    }
+  );
 };
 
 exports.create_a_stat = function(req, res){
