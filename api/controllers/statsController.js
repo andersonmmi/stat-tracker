@@ -23,7 +23,7 @@ exports.create_an_activity = function(req, res){
 };
 
 exports.read_an_activity = function(req, res){
-  Stat.findById(req.params.activityId, function(err, activity) {
+  Activities.findById(req.params.activityId, function(err, activity) {
     if (err)
       res.send(err);
     res.json(activity);
@@ -31,7 +31,7 @@ exports.read_an_activity = function(req, res){
 };
 
 exports.update_an_activity = function(req, res){
-  Stat.findOneAndUpdate({_id: req.params.activityId}, req.body, {new: true}, function(err, activity) {
+  Activities.findOneAndUpdate({_id: req.params.activityId}, req.body, {new: true}, function(err, activity) {
     if (err)
       res.send(err);
     res.json(activity);
