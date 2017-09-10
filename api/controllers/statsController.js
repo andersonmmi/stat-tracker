@@ -22,6 +22,7 @@ exports.create_an_activity = function(req, res){
   });
 };
 
+// read_an_activity does not limit to a single response
 exports.read_an_activity = function(req, res){
   Activities.findById(req.params.activityId, function(err, activity) {
     if (err)
