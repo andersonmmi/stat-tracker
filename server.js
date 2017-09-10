@@ -10,7 +10,6 @@ const app = express();
 mongoose.connect(mongoURL);
 const chalk = require('chalk');
 const Activities = require('./api/models/activityModel');
-const Stats = require('./api/models/statsModel')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

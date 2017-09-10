@@ -2,7 +2,6 @@
 
 
 const mongoose = require('mongoose');
-const Stats = mongoose.model('Stats');
 const Activities = mongoose.model('Activities')
 
 exports.list_all_activities = function(req, res){
